@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Place
 
-# Create your views here.
+def get_places(request):
+    places = list(Place.objects.values('id', 'name'))
+    return JsonResponse({'places': places})
+
+def index(request):
+    from django.shortcuts import render
+    return render(request, 'bassly.html')
