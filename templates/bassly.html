@@ -1,25 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Bassly Places</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <button onclick="loadPlaces()">Load places</button>
-    <ul id="places"></ul>
-    <script>
-        function loadPlaces() {
-            fetch('/places')
-                .then(response => response.json())
-                .then(data => {
-                    const list = document.getElementById('places');
-                    list.innerHTML = '';
-                    data.places.forEach(place => {
-                        const li = document.createElement('li');
-                        li.textContent = place.name;
-                        list.appendChild(li);
-                    });
-                });
-        }
-    </script>
+    <div class="center-container">
+        <button class="load-button" onclick="loadPlaces()">↻ Load places</button>
+    </div>
+    <ul class="list-of-places" id="places"></ul>
+
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>

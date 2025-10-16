@@ -1,0 +1,13 @@
+function loadPlaces() {
+    fetch('/places')
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById('places');
+            list.innerHTML = '';
+            data.places.forEach(place => {
+                const li = document.createElement('li');
+                li.textContent = place.name;
+                list.appendChild(li);
+            });
+        });
+}
