@@ -62,6 +62,7 @@ API повертає **стандартні HTTP-коди**, що відпові
 {
   "error": "Human-readable error message"
 }
+```
 
 Принципи:
 - без HTML-відповідей;
