@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bassly.events',
+    'bassly.orders',
+    'bassly.tickets',
+    'bassly.accounts',
 ]
 
 MIDDLEWARE = [

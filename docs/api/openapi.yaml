@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: TicketWave API
+  version: "1.0.0"
+  description: API сервісу для бронювання та продажу квитків на музичні концерти.
+
+servers:
+  - url: http://localhost:8000/api
+    description: Local server
+
+paths:
+
+  /auth/login:
+    post:
+      summary: Логін користувача
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Успішний логін
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+
+  /events:
+    get:
+      summary: Отримати список концертів
+      tags: [Events]
+      responses:
+        "200":
+          description: Список подій
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+
+    post:
+      summary: Створити подію
+      tags: [Events]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+      responses:
+        "201":
+          description: Подію створено
+
+  /events/{id}:
+    get:
+      summary: Отримати подію за ID
+      tags: [Events]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Інформація про подію
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+
+  /tickets/{eventId}:
+    get:
+      summary: Отримати квитки для події
+      tags: [Tickets]
+      parameters:
+        - in: path
+          name: eventId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Список квитків
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Ticket"
+
+  /tickets/{ticketId}/reserve:
+    post:
+      summary: Забронювати квиток
+      tags: [Tickets]
+      parameters:
+        - in: path
+          name: ticketId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Квиток заброньовано
+
+  /orders:
+    post:
+      summary: Створити замовлення
+      tags: [Orders]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticketId:
+                  type: integer
+      responses:
+        "201":
+          description: Замовлення створено
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Order"
+
+  /orders/{id}/pay:
+    post:
+      summary: Оплатити замовлення
+      tags: [Orders]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Замовлення оплачено
+
+components:
+
+  schemas:
+
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        artist:
+          type: string
+        date:
+          type: string
+          format: date-time
+        location:
+          type: string
+        total_tickets:
+          type: integer
+        sold_tickets:
+          type: integer
+
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: integer
+        seat_number:
+          type: string
+        status:
+          type: string
+          enum: [available, reserved, sold]
+
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        ticketId:
+          type: integer
+        status:
+          type: string
+          enum: [created, paid, canceled]
+        created_at:
+          type: string
+          format: date-time
