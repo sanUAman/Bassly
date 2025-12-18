@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bassly.orders',
     'bassly.tickets',
     'bassly.accounts',
+    "bassly.shared",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "bassly.shared.middleware.RequestIdMiddleware",
 ]
 
 ROOT_URLCONF = 'bassly_project.urls'
