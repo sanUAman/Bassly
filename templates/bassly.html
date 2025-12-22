@@ -1,17 +1,254 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bassly Places</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Bassly</title>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="center-container">
-        <button class="load-button" onclick="loadPlaces()">↻ Load places</button>
-    </div>
-    <ul class="list-of-places" id="places"></ul>
+    <header>
+        <div class="topbar">
+            <div class="logo"> <span class="logo-icon" onclick="location.reload()">Bassly</span> </div>
+            <div class="header-actions">
+                <a href="#" class="header-link">How It Works</a>
+                <a href="#" class="header-link">Become Partner</a>
+                <a href="{% url 'signin' %}" class="header-link">Log In</a>
+                <a href="#" class="contact btn-white">Contact Us</a>
+            </div>
+        </div>
+    </header>
 
-    <script src="{% static 'scripts.js' %}"></script>
+    <main>
+        <section class="hero">
+            <div class="hero-content" id="heroContent">
+                <h1 class="slogan">From Beat to Seat - Bassly`s Got You</h1>
+                <div class="placeholder-container">
+                    <div class="placeholder-div">
+                        <svg style="width:1.5rem; height:1.5rem; color:#fff; margin-right:0.75rem;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                        </svg>
+                        <input name="input-placeholder" class="placeholder" type="text" placeholder="Search for an event, artist, venue or city" />
+                    </div>
+                </div>
+            </div>
+            <div class="hero-logos">
+                <div class="scroll track">
+                    <span>Playboi Carti</span>
+                    <span>Yeat</span>
+                    <span>Ken Carson</span>
+                    <span>$uicideboy$</span>
+                    <span>ian</span>
+                    <span>Travis Scott</span>
+                    <span>Lil Pump</span>
+                    <span>Smokepurpp</span>
+                    <span>Drake</span>
+                    <span>Trippie Redd</span>
+                    <span>Lil Uzi Vert</span>
+                    <span>Post Malone</span>
+                    <span>Future</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="rating-wrapper">
+            <section class="rating-section">
+                <div class="features">
+                    <p>The safest way to buy and sell tickets with over 16.5 million fans</p>
+                    <p>Prices are capped at 20% above face value</p>
+                    <p>Primary tickets from over 6000 partnered events</p>
+                </div>
+
+                <div class="trustpilot">
+                    <h3>Trustpilot</h3>
+                    <div class="stars" id="stars"></div>
+                    <div class="reviews" id="reviews">Loading reviews...</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="event-finder">
+            <div class="tabs-bar">
+                <div class="tabs">
+                    <span class="tab active">Discover</span>
+                    <span class="tab">For you</span>
+                </div>
+                <div class="location">
+                    <span class="location-icon">📍</span>
+                    <span>Recommendations for <em>Lviv</em> ▼</span>
+                </div>
+            </div>
+
+            <h2>Find your next event</h2>
+
+            <div class="event-buttons">
+                <button class="btn btn-blue">Today<i class="fa-regular fa-calendar"></i></button>
+                <button class="btn btn-orange">Tomorrow<i class="fa-regular fa-calendar"></i></button>
+                <button class="btn btn-green">This weekend<i class="fa-regular fa-calendar"></i></button>
+                <button class="btn btn-red">Explore all<i class="fa-regular fa-calendar"></i></button>
+            </div>
+        </section>
+
+        <div class="trending-title">
+            <h1 class="trending-h1">Trending near you</h1>
+            <h2 class="trending-h2">Find events right up your alley.</h2>
+        </div>
+        
+        <section class="trending-cards">
+            <div class="trending-card">
+                <img src="../static/images/trending/card1.png" alt="Event image">
+                <div class="trending-card-content">
+                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
+                    <p class="trending-location">Stereoplaza, Kyiv</p>
+                    <div class="trending-footer">
+                        <div class="trending-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            Mon, Jul 4, 2022, 8:00 PM
+                        </div>
+                        <div class="trending-actions">
+                            <i class="far fa-star star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-card">
+                <img src="../static/images/trending/card1.png" alt="Event image">
+                <div class="trending-card-content">
+                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
+                    <p class="trending-location">Stereoplaza, Kyiv</p>
+                    <div class="trending-footer">
+                        <div class="trending-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            Mon, Jul 4, 2022, 8:00 PM
+                        </div>
+                        <div class="trending-actions">
+                            <i class="far fa-star star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-card">
+                <img src="../static/images/trending/card1.png" alt="Event image">
+                <div class="trending-card-content">
+                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
+                    <p class="trending-location">Stereoplaza, Kyiv</p>
+                    <div class="trending-footer">
+                        <div class="trending-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            Mon, Jul 4, 2022, 8:00 PM
+                        </div>
+                        <div class="trending-actions">
+                            <i class="far fa-star star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trending-card">
+                <img src="../static/images/trending/card1.png" alt="Event image">
+                <div class="trending-card-content">
+                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
+                    <p class="trending-location">Stereoplaza, Kyiv</p>
+                    <div class="trending-footer">
+                        <div class="trending-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            Mon, Jul 4, 2022, 8:00 PM
+                        </div>
+                        <div class="trending-actions">
+                            <i class="far fa-star star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="venues-title">
+            <h1 class="venues-h1">The best venues</h1>
+            <h2 class="venues-h2">Check the agenda of these great locales.</h2>
+        </div>
+        
+        <section class="venues-cards">
+            <div class="card">
+                <img src="../static/images/venues/Ziggo Dome.png" alt="Venue image">
+                <div class="card-overlay">
+                    <h3>Ziggo Dome</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../static/images/venues/Barclays Arena.png" alt="Venue image">
+                <div class="card-overlay">
+                    <h3>Barclays Arena</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../static/images/venues/3Arena.png" alt="Venue image">
+                <div class="card-overlay">
+                    <h3>3Arena</h3>
+                </div>
+            </div>
+
+            <div class="show-more">
+                <p>Show more</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="partners-wrapper">
+        <section class="partners-section">
+            <div class="partners-title">
+                <p class="partners-main-title">Over 1500 partners</p>
+                <p class="become-a-partner">Become a partner ></p>
+            </div>
+
+            <div class="partners-logo">
+                <img src="../static/images/partner-logo/partners-logo.png" alt="Logo image">
+                <img src="../static/images/partner-logo/partners-logo.png" alt="Logo image">
+                <img src="../static/images/partner-logo/partners-logo.png" alt="Logo image">
+                <img src="../static/images/partner-logo/partners-logo.png" alt="Logo image">
+                <img src="../static/images/partner-logo/partners-logo.png" alt="Logo image">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="back-to-top">
+            <a href="#top" class="back-to-top-btn">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+        <div class="social-icons">
+            <div class="li_icon">
+                <a href="https://www.facebook.com/profile.php?id=100046030630926" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://www.instagram.com/m0nk3go/" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://x.com/just_m0nk3go" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Oleksandr Dzhyvalov. All rights reserved</p>
+            <p>Built with Django<br>HTML & CSS & Javascript</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

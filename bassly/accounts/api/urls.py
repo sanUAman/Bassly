@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import register, login
+from bassly.accounts.api import views
 
 urlpatterns = [
-    path("register", register),
-    path("login", login),
+    path("signup/", views.signup_view, name="signup"),
+    path("signin/", views.signin_view, name="signin"),
 ]

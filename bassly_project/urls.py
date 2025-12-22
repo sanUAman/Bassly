@@ -7,6 +7,7 @@ def health(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("bassly.accounts.api.urls")),
     path('', include('bassly.urls')),
     path("api/accounts/", include("bassly.accounts.api.urls")),
     path("api/events/", include("bassly.events.api.urls")),

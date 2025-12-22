@@ -1,0 +1,115 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #111215;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    background: #111215;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.7rem 3vw 1.7rem 3vw;
+    border-bottom: 1px solid #3f3f3f;
+    font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 125px;
+}
+
+.auth-title {
+    font-size: 50px;
+    margin-bottom: 24px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.auth-container {
+    background: #1c1c1c;
+    padding: 32px;
+    width: 500px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #26363c;
+    margin-top: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #13242b;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #26363c;
+}
+
+.error {
+    background: #ff4757;
+    padding: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.switch {
+    text-align: center;
+    margin-top: 16px;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.success {
+    background: #2ecc71;
+    padding: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+}
