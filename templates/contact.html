@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bassly</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a href="/" class="logo">Bassly</a>
+            <div class="header-actions">
+                <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
+                <a href="#" class="header-link">Become Partner</a>
+                {% if user %}
+                    <a href="{% url 'logout' %}" class="header-link">Log Out</a>
+                {% else %}
+                    <a href="{% url 'signin' %}" class="header-link">Log In</a>
+                {% endif %}
+                <a href="#" class="contact btn-white">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-wrapper">
+            <form method="post" action="{% url 'send' %}" class="contact-form">
+                {% csrf_token %}
+                <label>
+                    Your message
+                    <input type="text" name="message" required>
+                </label>
+
+                <button type="submit" class="send-btn">Send</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

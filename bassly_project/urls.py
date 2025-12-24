@@ -6,12 +6,9 @@ def health(request):
     return JsonResponse({"status": "ok"})
 
 urlpatterns = [
+    path('', include('bassly.urls')),
     path('admin/', admin.site.urls),
     path("accounts/", include("bassly.accounts.api.urls")),
-    path('', include('bassly.urls')),
-    path("api/accounts/", include("bassly.accounts.api.urls")),
-    path("api/events/", include("bassly.events.api.urls")),
-    path("api/tickets/", include("bassly.tickets.api.urls")),
-    path("api/orders/", include("bassly.orders.api.urls")),
+    path("contact/", include("bassly.contact.api.urls")),
     path("health", health),
 ]

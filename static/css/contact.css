@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    background: #111215;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3vw 1.2rem 3vw;
+    border-bottom: 1px solid #808080;
+    font-family: "Montserrat", sans-serif;
+}
+
+    .topbar nav a {
+        margin-right: 2rem;
+        font-size: 0.98rem;
+        color: #bdbdbd;
+    }
+
+        .topbar nav a:last-child {
+            margin-right: 0;
+        }
+
+.logo {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 2.2rem;
+    color: #fff;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.header-link {
+    color: #bdbdbd;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.header-link:hover {
+    color: #aaa;
+}
+
+.contact {
+    background: #fff;
+    color: #111215;
+    padding: 0.7em 1.6em;
+    border-radius: 30px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+.btn-white {
+    background: #fff;
+    color: #18191d;
+    border: 1px solid #23242a;
+}
+
+    .btn-white:hover {
+        background: #23242a;
+        color: #fff;
+    }
+
+main {
+    background: #111215;
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-wrapper {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-form label {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #18191d;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.send-btn {
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: #fff;
+    color: #111215;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.send-btn:hover {
+    background: #23242a;
+    color: #fff;
+}

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'bassly.orders',
     'bassly.tickets',
     'bassly.accounts',
-    "bassly.shared",
+    'bassly.shared',
+    'bassly.contact',
 ]
 
 MIDDLEWARE = [

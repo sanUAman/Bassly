@@ -15,3 +15,6 @@ def index(request):
 
 def how_it_works(request):
     return render(request, "how_it_works.html")
+
+def become_partner(request):
+    return render(request, "become_partner.html")

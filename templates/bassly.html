@@ -17,13 +17,13 @@
             <div class="logo"> <span class="logo-icon" onclick="location.reload()">Bassly</span> </div>
             <div class="header-actions">
                 <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
-                <a href="#" class="header-link">Become Partner</a>
+                <a href="{% url 'become_partner' %}" class="header-link">Become Partner</a>
                 {% if user %}
                     <a href="{% url 'logout' %}" class="header-link">Log Out</a>
                 {% else %}
                     <a href="{% url 'signin' %}" class="header-link">Log In</a>
                 {% endif %}
-                <a href="#" class="contact btn-white">Contact Us</a>
+                <a href="{% url 'send' %}" class="contact btn-white">Contact Us</a>
             </div>
         </div>
     </header>
