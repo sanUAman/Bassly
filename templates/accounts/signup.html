@@ -39,7 +39,20 @@
                     <input type="password" name="password" required>
                 </label>
 
-                <button type="submit">Sign in</button>
+                <label>
+                    Email
+                    <input type="text" name="email" required>
+                </label>
+
+                <label>
+                    Role
+                    <select name="role">
+                        <option value="user">User</option>
+                        <option value="organizer">Organizer</option>
+                    </select>
+                </label>
+
+                <button type="submit">Sign up</button>
             </form>
 
             {% if success %}

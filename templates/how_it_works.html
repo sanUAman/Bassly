@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bassly</title>
+    <link rel="stylesheet" href="{% static 'css/how_it_works.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a href="/" class="logo">Bassly</a>
+            <div class="header-actions">
+                <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
+                <a href="#" class="header-link">Become Partner</a>
+                {% if user %}
+                    <a href="{% url 'logout' %}" class="header-link">Log Out</a>
+                {% else %}
+                    <a href="{% url 'signin' %}" class="header-link">Log In</a>
+                {% endif %}
+                <a href="#" class="contact btn-white">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="first">
+            <div class="first-content">
+                <h1>The safest way to buy and sell e-tickets</h1>
+                <p>
+                    Bassly is a safe, convenient, and fair platform for buying and selling e-tickets for music concerts.<br>
+                    Fraud is prevented through strict checks and partnerships with organizers.
+                </p>
+            </div>
+        </section>
+
+        <section class="second">
+            <div class="second-content">
+                <h1>Why Bassly</h1>
+                <div class="feature">
+                    <img src="../static/images/assets/svg/why-ticketswap-safe-dark.svg" alt="Safe" class="feature-icon">
+                    <div class="feature-content">
+                        <h2>Safe</h2>
+                        <p>
+                            Bassly is safe. The tickets and sellers on our platform are verified based on several criteria. 
+                            Through partnerships with organisations and ticket providers, we offer SecureSwap tickets which are 100% valid. 
+                        </p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="../static/images/assets/svg/why-ticketswap-easy-dark.svg" alt="Easy" class="feature-icon">
+                    <div class="feature-content">
+                        <h2>Easy</h2>
+                        <p>
+                            Listing a ticket can be done in a few clicks. Simply upload your ticket and provide the required information. 
+                            After this, you can sit back and relax - you will be notified when your ticket has been sold and we will transfer the money to your bank account in 5 business days. 
+                            Buying a ticket is really easy as well. You can pay directly through our app and the ticket will be available in your Bassly account and sent to your e-mail inbox immediately.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="../static/images/assets/svg/why-ticketswap-fair.svg" alt="Fair" class="feature-icon">
+                    <div class="feature-content">
+                        <h2>Fair</h2>
+                        <p>
+                            As a Bassly fan, you know you`ll always be paying a fair price for your tickets. 
+                            We protect buyers from overpricing by keeping to a maximum 20% mark-up from the original sales price.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="third">
+            <div class="third-content">
+                <h1>Buying tickets</h1>
+                <div class="buying-grid">
+                    <div class="buying-item">
+                        <h3>⚡ Receive your ticket immediately</h3>
+                        <p>
+                            Find the ticket you're looking for, pay online and you'll receive the
+                            ticket immediately. Tickets you see for sale have already been uploaded
+                            by the seller, so sent to you immediately upon paying.
+                        </p>
+                    </div>
+
+                    <div class="buying-item">
+                        <h3>👮 Strict checks</h3>
+                        <p>
+                            Fraud is prevented by user checks and through partnerships and
+                            collaborations with event organisers. For more information about our
+                            user checks, please <a href="#">contact us</a>.
+                        </p>
+                    </div>
+
+                    <div class="buying-item">
+                        <h3>👁 Transparency</h3>
+                        <p>
+                            You can see the name and the photo of the person you're buying a ticket from.
+                            You can also see if they've connected their social media accounts and if
+                            they've sold tickets with us before. Showing these details gives you
+                            confidence in who you are buying from.
+                        </p>
+                    </div>
+
+                    <div class="buying-item">
+                        <h3>💰 Fair prices</h3>
+                        <p>
+                            We protect buyers from overpricing by keeping to a maximum 20% mark-up
+                            from the original sales price. As a buyer, you know you'll always be
+                            paying a fair price for your tickets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>    
+
+    <footer>
+        <div class="back-to-top">
+            <a href="#top" class="back-to-top-btn">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+        <div class="social-icons">
+            <div class="li_icon">
+                <a href="https://www.facebook.com/profile.php?id=100046030630926" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://www.instagram.com/just_m0nk3go/" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://x.com/m0nk3go" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Oleksandr Dzhyvalov. All rights reserved</p>
+            <p>Built with Django<br>HTML & CSS & Javascript</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+</html>
