@@ -108,3 +108,13 @@ API описано у форматі **OpenAPI 3.0** та доступне у ф
 У разі питань можеш звертатися через Issues у GitHub.
 
 ---
+
+## Docker
+
+- docker build -t bassly .
+- docker compose up -d
+- docker compose exec web python manage.py makemigrations
+- docker compose exec web python manage.py migrate
+- docker compose build
+- docker compose up -d
+- docker compose down (якщо зробили все що потрібно)
