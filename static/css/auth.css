@@ -67,7 +67,7 @@ input, select {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    border: none;
+    border: 1px solid #344a52;
     border-radius: 8px;
     color: white;
     background-color: #26363c;
@@ -78,7 +78,7 @@ button {
     width: 100%;
     padding: 10px;
     background: #13242b;
-    border: none;
+    border: 1px solid #344a52;
     border-radius: 8px;
     color: white;
     cursor: pointer;

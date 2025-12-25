@@ -10,35 +10,216 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body id="top">
     <header>
         <div class="topbar">
             <a href="/" class="logo">Bassly</a>
             <div class="header-actions">
                 <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
-                <a href="#" class="header-link">Become Partner</a>
+                <a href="{% url 'become_partner' %}" class="header-link">Become Partner</a>
                 {% if user %}
                     <a href="{% url 'logout' %}" class="header-link">Log Out</a>
                 {% else %}
                     <a href="{% url 'signin' %}" class="header-link">Log In</a>
                 {% endif %}
-                <a href="#" class="contact btn-white">Contact Us</a>
+                <a href="{% url 'send' %}" class="contact btn-white">Contact Us</a>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="contact-wrapper">
-            <form method="post" action="{% url 'send' %}" class="contact-form">
-                {% csrf_token %}
-                <label>
-                    Your message
-                    <input type="text" name="message" required>
-                </label>
+        <section class="first">
+            <div class="first-content">
+                <div class="help-widget">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <span>We're here to help</span>
+                </div>
+                <h1>Get in Touch</h1>
+                <p>
+                    Have a question about buying or selling tickets? Our friendly team is here to assist you<br>every step of the way.
+                </p>
+            </div>
+        </section>
 
-                <button type="submit" class="send-btn">Send</button>
-            </form>
-        </div>
+        <section class="contact-section">
+            <div class="contact-container">
+
+                <div class="contact-card">
+                    <h2>Send us a message</h2>
+                    <p class="subtitle">
+                        Fill out the form below and we'll get back to you as soon as possible.
+                    </p>
+
+                    <form method="post" action="{% url 'send' %}" class="contact-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" placeholder="How can we help you?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea type="text" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-btn">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+                        <div class="form-note">
+                            <i class="fa-regular fa-circle-check"></i>
+                            We typically respond within 24 hours
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+
+                    <span class="badge">Contact Info</span>
+                    <h2>We'd love to hear from you</h2>
+                    <p class="subtitle">
+                        Whether you have a question about tickets, need help with a purchase,
+                        or want to become a partner, we're ready to help.
+                    </p>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="icon email"><i class="fa-solid fa-envelope"></i></div>
+                            <h4>Email Us</h4>
+                            <p>We're here to help</p>
+                            <strong>support@tickethub.com</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon phone"><i class="fa-solid fa-phone"></i></div>
+                            <h4>Call Us</h4>
+                            <p>Mon–Fri from 8am to 6pm</p>
+                            <strong>+1 (555) 123-4567</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon location"><i class="fa-solid fa-location-dot"></i></div>
+                            <h4>Visit Us</h4>
+                            <p>Come say hello</p>
+                            <strong>123 Market St, SF, CA 94103</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="icon time"><i class="fa-solid fa-clock"></i></div>
+                            <h4>Response Time</h4>
+                            <p>Average response</p>
+                            <strong>Within 2 hours</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>  
+        
+        <section class="faq-section">
+            <div class="faq-container">
+
+                <span class="faq-badge">FAQ</span>
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <p class="faq-subtitle">
+                    Find answers to common questions about buying and selling tickets on Bassly.
+                </p>
+
+                <div class="faq-list">
+
+                    <div class="faq-item active">
+                        <button class="faq-question">
+                            How do I sell my tickets?
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Selling is easy! Create an account, list your ticket with all the event details,
+                            set your price, and we'll handle the rest. Once sold, you'll receive payment
+                            within 2-3 business days.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are the tickets guaranteed to be authentic?
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Yes! We verify every ticket listed on our platform. If there's ever an issue with authenticity,
+                            our Buyer Guarantee covers you with a full refund.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I receive my purchased tickets?
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            Tickets are delivered digitally via email or through our app.
+                            You'll receive them instantly after purchase in most cases, or up to 24 hours before the event.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What if an event gets cancelled?
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            If an event is cancelled, you'll receive a full refund automatically.
+                            We'll notify you immediately and process the refund within 5-7 business days.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How can I contact customer support?
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            You can reach us via email at support@tickethub.com, call us at +1 (555) 123-4567,
+                            or use the contact form above. We're available Monday through Friday, 8am to 6pm.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer>
+        <div class="back-to-top">
+            <a href="#top" class="back-to-top-btn">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+        <div class="social-icons">
+            <div class="li_icon">
+                <a href="https://www.facebook.com/profile.php?id=100046030630926" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://www.instagram.com/just_m0nk3go/" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div class="li_icon">
+                <a href="https://x.com/m0nk3go" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 Oleksandr Dzhyvalov. All rights reserved</p>
+            <p>Built with Django<br>HTML & CSS & Javascript</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/contact.js' %}"></script>
 </body>
 </html>

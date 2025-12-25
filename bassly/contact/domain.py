@@ -9,6 +9,7 @@ class ContactUsMessage(models.Model):
         null=True, blank=True
     )
     message = models.TextField()
+    subject = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

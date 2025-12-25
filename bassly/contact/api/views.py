@@ -14,6 +14,7 @@ def send_message(request):
         return redirect("contact")
 
     message = request.POST.get("message")
+    subject = request.POST.get("subject")
     user_id = request.session.get("user_id")
 
     user = None
@@ -25,7 +26,8 @@ def send_message(request):
 
     ContactUsMessage.objects.create(
         user=user,
-        message=message
+        message=message,
+        subject=subject
     )
 
     return redirect("contact")

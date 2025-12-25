@@ -29,7 +29,7 @@ const speed = 2;
 function animateScroll() {
     position -= speed;
     if (Math.abs(position) >= track.scrollWidth / 2 + 15) {
-    position = 0; // плавний reset
+    position = 0;
     }
     track.style.transform = `translateX(${position}px)`;
     requestAnimationFrame(animateScroll);

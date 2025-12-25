@@ -16,13 +16,13 @@
             <a href="/" class="logo">Bassly</a>
             <div class="header-actions">
                 <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
-                <a href="#" class="header-link">Become Partner</a>
+                <a href="{% url 'become_partner' %}" class="header-link">Become Partner</a>
                 {% if user %}
                     <a href="{% url 'logout' %}" class="header-link">Log Out</a>
                 {% else %}
                     <a href="{% url 'signin' %}" class="header-link">Log In</a>
                 {% endif %}
-                <a href="#" class="contact btn-white">Contact Us</a>
+                <a href="{% url 'send' %}" class="contact btn-white">Contact Us</a>
             </div>
         </div>
     </header>
@@ -93,7 +93,7 @@
                         <p>
                             Fraud is prevented by user checks and through partnerships and
                             collaborations with event organisers. For more information about our
-                            user checks, please <a href="#">contact us</a>.
+                            user checks, please <a href="{% url 'send' %}">contact us</a>.
                         </p>
                     </div>
 
