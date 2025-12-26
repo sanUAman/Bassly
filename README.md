@@ -118,3 +118,33 @@ API описано у форматі **OpenAPI 3.0** та доступне у ф
 - docker compose build
 - docker compose up -d
 - docker compose down (якщо зробили все що потрібно)
+
+![CI](https://github.com/sanUAman/Bassly/actions/workflows/ci.yml/badge.svg)
+
+## CI/CD
+
+### CI
+При кожному push виконуються:
+- встановлення залежностей
+- міграції
+- юніт-тести
+
+### Delivery
+Обраний варіант: **GitHub Container Registry (GHCR)**
+
+Pipeline:
+- будує Docker image
+- публікує у GHCR
+
+Образ доступний тут:
+ghcr.io/sanUAman/Bassly:latest
+
+## Local Run
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
