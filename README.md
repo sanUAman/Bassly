@@ -119,8 +119,6 @@ API описано у форматі **OpenAPI 3.0** та доступне у ф
 - docker compose up -d
 - docker compose down (якщо зробили все що потрібно)
 
-![CI](https://github.com/sanUAman/Bassly/actions/workflows/ci.yml/badge.svg)
-
 ## CI/CD
 
 ### CI
@@ -136,8 +134,12 @@ Pipeline:
 - будує Docker image
 - публікує у GHCR
 
+Збирання образу:
+- docker pull ghcr.io/sanuaman/bassly:latest
+- docker run -p 8000:8000 ghcr.io/sanuaman/bassly:latest
+
 Образ доступний тут:
-ghcr.io/sanUAman/Bassly:latest
+ghcr.io/sanUAman/bassly:latest
 
 ## Local Run
 
@@ -148,3 +150,5 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
+
+![CI](https://github.com/sanUAman/Bassly/actions/workflows/ci.yml/badge.svg)
