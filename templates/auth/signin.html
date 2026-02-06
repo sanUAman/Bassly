@@ -1,0 +1,47 @@
+{% load static %}
+
+<div id="signinModal" class="modal"{% if show_signin_modal %} data-show-modal="true"{% endif %}>
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeSigninModal()">&times;</span>
+        
+        <h1 class="auth-title">Sign In</h1>
+
+        <div class="auth-container">
+            {% if signin_error %}
+                <div class="error">{{ signin_error }}</div>
+            {% endif %}
+
+            <form method="post" action="{% url 'signin' %}">
+                {% csrf_token %}
+
+                <label>
+                    Username
+                    <input type="text" name="username" required>
+                </label>
+
+                <label>
+                    Password
+                    <input type="password" name="password" required>
+                </label>
+
+                <button type="submit">Sign in</button>
+            </form>
+
+            {% if success %}
+                <div class="success">{{ success }}</div>
+            {% endif %}
+
+            <p class="switch">
+                No account?
+                <a href="#" class="switch-modal-link" data-target="signup">Sign Up</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/auth/signin.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="{% static 'js/auth/auth.js' %}"></script>

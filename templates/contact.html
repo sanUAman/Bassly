@@ -17,12 +17,12 @@
             <div class="header-actions">
                 <a href="{% url 'how_it_works' %}" class="header-link">How It Works</a>
                 <a href="{% url 'become_partner' %}" class="header-link">Become Partner</a>
-                {% if user %}
+                {% if request.session.user_id %}
                     <a href="{% url 'logout' %}" class="header-link">Log Out</a>
                 {% else %}
-                    <a href="{% url 'signin' %}" class="header-link">Log In</a>
+                    <a href="#" class="header-link" onclick="openSigninModal(); return false;">Sign In</a>
                 {% endif %}
-                <a href="{% url 'send' %}" class="contact btn-white">Contact Us</a>
+                    <a href="{% url 'send' %}" class="contact btn-white">Contact Us</a>
             </div>
         </div>
     </header>
@@ -219,6 +219,9 @@
             <p>Built with Django<br>HTML & CSS & Javascript</p>
         </div>
     </footer>
+
+    {% include 'auth/signin.html' %}
+    {% include 'auth/signup.html' %}
 
     <script src="{% static 'js/contact.js' %}"></script>
 </body>
