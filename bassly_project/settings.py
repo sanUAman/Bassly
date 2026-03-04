@@ -32,6 +32,9 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'bassly',
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +133,94 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ─── Unfold Admin Theme ────────────────────────────────────────────────────────
+UNFOLD = {
+    "SITE_TITLE": "Bassly Admin",
+    "SITE_HEADER": "Bassly",
+    "SITE_SUBHEADER": "Management Panel",
+    "SITE_URL": "/",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "THEME": "dark",
+    "COLORS": {
+        "primary": {
+            "50": "250 245 255",
+            "100": "243 232 255",
+            "200": "233 213 255",
+            "300": "216 180 254",
+            "400": "192 132 252",
+            "500": "168 85 247",
+            "600": "147 51 234",
+            "700": "126 34 206",
+            "800": "107 33 168",
+            "900": "88 28 135",
+            "950": "59 7 100",
+        },
+        "font": {
+            "subtle-light": "107 114 128",
+            "subtle-dark": "156 163 175",
+            "default-light": "75 85 99",
+            "default-dark": "209 213 219",
+            "important-light": "17 24 39",
+            "important-dark": "243 244 246",
+        },
+        "base": {
+            "50": "250 250 250",
+            "100": "244 244 245",
+            "200": "228 228 231",
+            "300": "212 212 216",
+            "400": "161 161 170",
+            "500": "113 113 122",
+            "600": "82 82 91",
+            "700": "39 39 42",
+            "800": "24 24 27",
+            "900": "18 18 18",
+            "950": "9 9 11",
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": "Content",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Events",
+                        "icon": "calendar_month",
+                        "link": "/admin/events/event/",
+                    },
+                    {
+                        "title": "Tickets",
+                        "icon": "confirmation_number",
+                        "link": "/admin/tickets/ticket/",
+                    },
+                    {
+                        "title": "Orders",
+                        "icon": "shopping_bag",
+                        "link": "/admin/orders/order/",
+                    },
+                ],
+            },
+            {
+                "title": "Users & Messages",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Users",
+                        "icon": "group",
+                        "link": "/admin/accounts/user/",
+                    },
+                    {
+                        "title": "Contact Messages",
+                        "icon": "mail",
+                        "link": "/admin/contact/contactusmessage/",
+                    },
+                ],
+            },
+        ],
+    },
+}
