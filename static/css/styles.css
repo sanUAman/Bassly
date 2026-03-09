@@ -343,7 +343,6 @@ main {
     color: #8aa2c1;
 }
 
-/* Event Finder */
 .event-finder {
     padding: 55px 20px;
     max-width: 1200px;
@@ -432,7 +431,7 @@ main {
     border-radius: 14px;
     font-size: 0.95em;
     font-weight: 550;
-    width: 260px;
+    width: 279px;
     color: white;
     background-color: #1a1c22;
     cursor: pointer;
@@ -471,16 +470,28 @@ main {
 
 .trending-cards {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 30px;
     max-width: 1160px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
+}
+
+.no-events {
+    width: 100%;
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.03em;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
 }
 
 .trending-card {
-    width: 280px;
+    width: 360px;
     background-color: #141518;
     border-radius: 16px;
     overflow: hidden;
@@ -578,6 +589,10 @@ main {
 .star:hover {
     color: #ffd700;
     transform: scale(1.12);
+}
+
+.star.featured {
+    color: #ffd700;
 }
 
 /* Venues Section */

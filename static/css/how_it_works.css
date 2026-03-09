@@ -231,7 +231,7 @@ main {
     display: flex;
     align-items: center;
     margin-bottom: 3rem;
-    gap: 2rem;
+    gap: 1rem;
     width: 100%;
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.02);
@@ -268,10 +268,12 @@ main {
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
     flex-shrink: 0;
-    filter: brightness(1.1);
+    font-size: 3rem;
+    color: #ffffff;
+    width: 100px;
+    text-align: center;
+    align-self: center;
 }
 
 .feature-content h2 {
@@ -327,6 +329,22 @@ main {
     background: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
+}
+
+.lightning {
+    color: #f59e0b;;
+}
+
+.shield {
+    color: #10b981;
+}
+
+.eye {
+    color: #3b82f6;
+}
+
+.coins {
+    color: #fbbf24;
 }
 
 .buying-item h3 {

@@ -80,8 +80,8 @@
         <section class="event-finder">
             <div class="tabs-bar">
                 <div class="tabs">
-                    <span class="tab active">Discover</span>
-                    <span class="tab">Featured</span>
+                    <span class="tab active" onclick="switchTab('discover', event); return false;">Discover</span>
+                    <span class="tab" onclick="switchTab('featured', event); return false;">Featured</span>
                 </div>
                 <div class="location">
                     <span class="location-icon">📍</span>
@@ -92,10 +92,10 @@
             <h2>Find your next event</h2>
 
             <div class="event-buttons">
-                <button class="btn btn-blue">Today<i class="fa-regular fa-calendar"></i></button>
-                <button class="btn btn-orange">Tomorrow<i class="fa-regular fa-calendar"></i></button>
-                <button class="btn btn-green">This weekend<i class="fa-regular fa-calendar"></i></button>
-                <button class="btn btn-red">Explore all<i class="fa-regular fa-calendar"></i></button>
+                <button type="button" class="btn btn-blue" onclick="filterEvents('today', event)">Today<i class="fa-regular fa-calendar"></i></button>
+                <button type="button" class="btn btn-orange" onclick="filterEvents('tomorrow', event)">Tomorrow<i class="fa-regular fa-calendar"></i></button>
+                <button type="button" class="btn btn-green" onclick="filterEvents('weekend', event)">This weekend<i class="fa-regular fa-calendar"></i></button>
+                <button type="button" class="btn btn-red" onclick="filterEvents('all', event)">Explore all<i class="fa-regular fa-calendar"></i></button>
             </div>
         </section>
 
@@ -105,73 +105,30 @@
         </div>
         
         <section class="trending-cards">
+            {% for event in events %}
             <div class="trending-card">
-                <img src="../static/images/trending/card1.png" alt="Event image">
+                {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="Event image">
+                {% else %}
+                    <img src="{% static 'images/trending/card1.png' %}" alt="Event image">
+                {% endif %}
                 <div class="trending-card-content">
-                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
-                    <p class="trending-location">Stereoplaza, Kyiv</p>
+                    <h3 class="trending-title-h3">{{ event.title }}</h3>
+                    <p class="trending-location">{{ event.location }}</p>
                     <div class="trending-footer">
                         <div class="trending-date">
                             <i class="fa-regular fa-calendar"></i>
-                            Mon, Jul 4, 2022, 8:00 PM
+                            {{ event.date|date:"D, M j, Y, g:i A" }}
                         </div>
                         <div class="trending-actions">
-                            <i class="far fa-star star"></i>
+                            <i class="{% if event.id in user_featured_ids %}fas{% else %}far{% endif %} fa-star star {% if event.id in user_featured_ids %}featured{% endif %}" data-event-id="{{ event.id }}" onclick="toggleFeatured(this)"></i>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="trending-card">
-                <img src="../static/images/trending/card1.png" alt="Event image">
-                <div class="trending-card-content">
-                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
-                    <p class="trending-location">Stereoplaza, Kyiv</p>
-                    <div class="trending-footer">
-                        <div class="trending-date">
-                            <i class="fa-regular fa-calendar"></i>
-                            Mon, Jul 4, 2022, 8:00 PM
-                        </div>
-                        <div class="trending-actions">
-                            <i class="far fa-star star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="trending-card">
-                <img src="../static/images/trending/card1.png" alt="Event image">
-                <div class="trending-card-content">
-                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
-                    <p class="trending-location">Stereoplaza, Kyiv</p>
-                    <div class="trending-footer">
-                        <div class="trending-date">
-                            <i class="fa-regular fa-calendar"></i>
-                            Mon, Jul 4, 2022, 8:00 PM
-                        </div>
-                        <div class="trending-actions">
-                            <i class="far fa-star star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="trending-card">
-                <img src="../static/images/trending/card1.png" alt="Event image">
-                <div class="trending-card-content">
-                    <h3 class="trending-title-h3">Louis Tomlinson</h3>
-                    <p class="trending-location">Stereoplaza, Kyiv</p>
-                    <div class="trending-footer">
-                        <div class="trending-date">
-                            <i class="fa-regular fa-calendar"></i>
-                            Mon, Jul 4, 2022, 8:00 PM
-                        </div>
-                        <div class="trending-actions">
-                            <i class="far fa-star star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% empty %}
+                <p class="no-events"><i class="fa-solid fa-heart-crack"></i> No events available at the moment.</p>
+            {% endfor %}
         </section>
 
         <div class="venues-title">

@@ -13,7 +13,7 @@ class EventAdmin(ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title', 'artist', 'location')
     list_filter = ('date',)
-    fields = ('title', 'artist', 'date', 'location', 'organizer', 'total_tickets', 'sold_tickets')
+    fields = ('title', 'artist', 'date', 'location', 'organizer', 'total_tickets', 'sold_tickets', 'image')
 
 
 @admin.register(Ticket)
