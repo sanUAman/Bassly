@@ -1,5 +1,5 @@
 from django.contrib import admin
-from unfold.admin import ModelAdmin
+from unfold import ModelAdmin
 from bassly.events.domain import Event
 from bassly.tickets.domain import Ticket
 from bassly.orders.domain import Order
