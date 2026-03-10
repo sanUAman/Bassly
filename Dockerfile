@@ -11,4 +11,6 @@ COPY . .
 ENV DJANGO_SETTINGS_MODULE=bassly_project.settings
 ENV PYTHONUNBUFFERED=1
 
+RUN python manage.py migrate --noinput
+
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
