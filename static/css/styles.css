@@ -446,6 +446,22 @@ main {
     background-color: #22252c;
 }
 
+.today {
+    color: #00b6f0;
+}
+
+.tomorrow {
+    color: #ffa600;
+}
+
+.weekend {
+    color: #00ce5c;
+}
+
+.all {
+    color: #fe4a49;
+}
+
 /* Trending Section */
 .trending-title {
     padding: 0 20px;

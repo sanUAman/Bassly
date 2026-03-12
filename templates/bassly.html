@@ -92,10 +92,10 @@
             <h2>Find your next event</h2>
 
             <div class="event-buttons">
-                <button type="button" class="btn btn-blue" onclick="filterEvents('today', event)">Today<i class="fa-regular fa-calendar"></i></button>
-                <button type="button" class="btn btn-orange" onclick="filterEvents('tomorrow', event)">Tomorrow<i class="fa-regular fa-calendar"></i></button>
-                <button type="button" class="btn btn-green" onclick="filterEvents('weekend', event)">This weekend<i class="fa-regular fa-calendar"></i></button>
-                <button type="button" class="btn btn-red" onclick="filterEvents('all', event)">Explore all<i class="fa-regular fa-calendar"></i></button>
+                <button type="button" class="btn btn-blue" onclick="filterEvents('today', event)">Today<i class="fa-regular fa-calendar today"></i></button>
+                <button type="button" class="btn btn-orange" onclick="filterEvents('tomorrow', event)">Tomorrow<i class="fa-regular fa-calendar tomorrow"></i></button>
+                <button type="button" class="btn btn-green" onclick="filterEvents('weekend', event)">This weekend<i class="fa-regular fa-calendar weekend"></i></button>
+                <button type="button" class="btn btn-red" onclick="filterEvents('all', event)">Explore all<i class="fa-regular fa-calendar all"></i></button>
             </div>
         </section>
 
@@ -126,8 +126,6 @@
                     </div>
                 </div>
             </div>
-            {% empty %}
-                <p class="no-events"><i class="fa-solid fa-heart-crack"></i> No events available at the moment.</p>
             {% endfor %}
         </section>
 

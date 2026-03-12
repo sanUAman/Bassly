@@ -112,6 +112,14 @@ async function fetchFeaturedEvents() {
         
         if (events.length === 0) {
             cardsContainer.innerHTML = '<p class="no-events"><i class="fa-solid fa-heart-crack"></i> No featured events yet. Click the star on any event to add it here!</p>';
+            
+            // Smooth scroll to the events section even for empty case
+            const eventsSection = document.querySelector('.tabs-bar');
+            if (eventsSection) {
+                const offset = 120; // Offset for fixed header
+                const top = eventsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
             return;
         }
         
@@ -141,10 +149,12 @@ async function fetchFeaturedEvents() {
         });
         cardsContainer.innerHTML = cardsHTML;
         
-        // Smooth scroll to the events section
+        // Smooth scroll to the events section (with offset for header)
         const eventsSection = document.querySelector('.tabs-bar');
         if (eventsSection) {
-            eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 120; // Offset for fixed header
+            const top = eventsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
         }
     } catch (error) {
         console.error('Error fetching featured events:', error);
@@ -243,7 +253,15 @@ async function filterEvents(filter, event) {
         if (!cardsContainer) return;
         
         if (events.length === 0) {
-            cardsContainer.innerHTML = '<p class="no-events"><i class="fa-solid fa-heart-crack"></i> No events found.</p>';
+            cardsContainer.innerHTML = '<p class="no-events"><i class="fa-solid fa-heart-crack"></i> No events available at the moment.</p>';
+            
+            // Smooth scroll to the events section even for empty case
+            const eventsSection = document.querySelector('.tabs-bar');
+            if (eventsSection) {
+                const offset = 120; // Offset for fixed header
+                const top = eventsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
             return;
         }
         
@@ -254,10 +272,12 @@ async function filterEvents(filter, event) {
         });
         cardsContainer.innerHTML = cardsHTML;
         
-        // Smooth scroll to the events section
+        // Smooth scroll to the events section (with offset for header)
         const eventsSection = document.querySelector('.tabs-bar');
         if (eventsSection) {
-            eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 120; // Offset for fixed header
+            const top = eventsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
         }
     } catch (error) {
         console.error('Error filtering events:', error);
